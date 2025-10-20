@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nicholas Oyiolo | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --text-color: #333;
+        --text-light: #777;
+        --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: #2980b9;
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 3px;
+        background: var(--primary-color);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title p {
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      header.scrolled {
+        padding: 10px 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+      }
+
+      .logo span {
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        bottom: -5px;
+        left: 0;
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(
+            135deg,
+            rgba(52, 152, 219, 0.9),
+            rgba(44, 62, 80, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80")
+            no-repeat center center/cover;
+        color: white;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-content h1 span {
+        color: var(--accent-color);
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 1.5rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        40% {
+          transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+      }
+
+      /* About Section */
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-img {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .about-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .about-img:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        color: var(--text-light);
+      }
+
+      .skills {
+        margin-top: 30px;
+      }
+
+      .skill-item {
+        margin-bottom: 20px;
+      }
+
+      .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+      }
+
+      .skill-bar {
+        height: 8px;
+        background: #e0e0e0;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        height: 100%;
+        background: var(--primary-color);
+        border-radius: 4px;
+        width: 0;
+        transition: width 1.5s ease;
+      }
+
+      /* Services Section */
+      .services {
+        background: var(--light-color);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+      }
+
+      /* Portfolio Section */
+      .portfolio-filter {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+
+      .filter-btn {
+        padding: 8px 20px;
+        background: transparent;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 30px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .portfolio-item {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        position: relative;
+        cursor: pointer;
+      }
+
+      .portfolio-img {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .portfolio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .portfolio-item:hover .portfolio-img img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(52, 152, 219, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: var(--transition);
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-overlay h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .portfolio-overlay p {
+        margin-bottom: 15px;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        background: var(--light-color);
+      }
+
+      .testimonial-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .testimonial-slide {
+        min-width: 100%;
+        padding: 0 20px;
+      }
+
+      .testimonial-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        color: var(--text-light);
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .author-img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .author-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+      }
+
+      .author-info p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .slider-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px;
+      }
+
+      .slider-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ccc;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .slider-dot.active {
+        background: var(--primary-color);
+      }
+
+      /* Contact Section */
+      .contact-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .contact-details h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: var(--secondary-color);
+      }
+
+      .contact-form {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--secondary-color);
+        color: white;
+        padding: 70px 0 20px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .footer-col h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h3::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background: var(--primary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-col p {
+        margin-bottom: 20px;
+        color: #bbb;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background: var(--primary-color);
+        transform: translateY(-5px);
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #bbb;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #bbb;
+        font-size: 0.9rem;
+      }
+
+      /* Back to Top */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 999;
+      }
+
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-img,
+        .about-text {
+          flex: none;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          padding: 15px 0;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 70px);
+          background: white;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-top: 50px;
+          transition: var(--transition);
+          box-shadow: var(--shadow);
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+
+        section {
+          padding: 70px 0;
+        }
+
+        .service-card,
+        .contact-form {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo">Nicholas<span>.</span></a>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>
+            Hi, I'm <span>Nicholas Oyiolo</span><br />Full Stack Developer
+          </h1>
+          <p>
+            I create stunning, responsive websites and applications that deliver
+            exceptional user experiences. Let's bring your ideas to life!
+          </p>
+          <div class="hero-btns">
+            <a href="#portfolio" class="btn">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <p>Get to know more about my background, skills, and experience</p>
+        </div>
+        <div class="about-content">
+          <div class="about-img">
+            <img src="passport.jpg" alt="Nicholas Oyiolo" />
+          </div>
+          <div class="about-text">
+            <h3>Full Stack Developer & UI/UX Designer</h3>
+            <p>
+              I'm a passionate full stack developer with expertise in creating
+              dynamic, responsive web applications. With a strong foundation in
+              both front-end and back-end technologies, I deliver comprehensive
+              digital solutions.
+            </p>
+            <p>
+              My approach combines technical expertise with creative
+              problem-solving to build applications that are not only functional
+              but also provide exceptional user experiences.
+            </p>
+
+            <div class="skills">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>HTML/CSS</span>
+                  <span>95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>JavaScript</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>React</span>
+                  <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span>Node.js</span>
+                  <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="80"></div>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="btn"
+              onclick="downloadCV()"
+              style="margin-top: 20px"
+            >
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>My Services</h2>
+          <p>
+            I offer a wide range of services to help your business grow online
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>
+              Custom website development using the latest technologies to create
+              fast, responsive, and scalable web applications.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>
+              User-centered design approach to create intuitive and engaging
+              interfaces that enhance user experience.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>
+              Creating websites that look and function perfectly on all devices,
+              from desktops to smartphones.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>E-commerce Solutions</h3>
+            <p>
+              Building secure and user-friendly online stores with integrated
+              payment systems and inventory management.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>SEO Optimization</h3>
+            <p>
+              Improving website visibility on search engines to drive organic
+              traffic and increase online presence.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Maintenance & Support</h3>
+            <p>
+              Ongoing website maintenance, updates, and technical support to
+              ensure optimal performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h2>My Portfolio</h2>
+          <p>Check out some of my recent projects and creative work</p>
+        </div>
+        <div class="portfolio-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web Design</button>
+          <button class="filter-btn" data-filter="app">App Development</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="web">
+            <div class="portfolio-img">
+              <img src="law-firm.jpg" alt="Project 1" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Law Firm Website</h3>
+              <p>
+                A professional website for a law firm, showcasing their services
+                and expertise.
+              </p>
+              <a
+                href="https://nick187122.github.io/Kang-ethe-and-Mola-Advocates/"
+                class="btn btn-outline"
+                target="_blank"
+                >View Details</a
+              >
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="app">
+            <div class="portfolio-img">
+              <img src="pharmacy.jpg" alt="Project 2" />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Pharmacy Website</h3>
+              <p>Website for a pharmacy with online booking.</p>
+              <a
+                href="https://nick187122.github.io/Le-Grande-Specialty-Pharmacy/"
+                class="btn btn-outline"
+                target="_blank"
+                >View Details</a
+              >
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="branding">
+            <div class="portfolio-img">
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
+                alt="Project 3"
+              />
+            </div>
+            <!-- <div class="portfolio-overlay">
+              <h3>Brand Identity</h3>
+              <p>Complete branding package for a tech startup</p>
+              <a href="#" class="btn btn-outline">View Details</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="web">
+            <div class="portfolio-img">
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
+                alt="Project 4"
+              />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Corporate Website</h3>
+              <p>Modern business website with CMS integration</p>
+              <a href="#" class="btn btn-outline">View Details</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="app">
+            <div class="portfolio-img">
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
+                alt="Project 5"
+              />
+            </div>
+            <div class="portfolio-overlay">
+              <h3>Fitness Tracking App</h3>
+              <p>Mobile application for workout and nutrition tracking</p>
+              <a href="#" class="btn btn-outline">View Details</a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-category="branding">
+            <div class="portfolio-img">
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
+                alt="Project 6"
+              />
+            </div> -->
+            <div class="portfolio-overlay">
+              <h3>Point Of Sale System</h3>
+              <p>A point of Sale system for a Pharmacy</p>
+              <a href="#" class="btn btn-outline">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Client Testimonials</h2>
+          <p>What my clients say about my work and services</p>
+        </div>
+        <div class="testimonial-slider">
+          <div class="testimonial-track">
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  "Working with Nicholas was an absolute pleasure. He delivered
+                  our project on time and exceeded our expectations. His
+                  attention to detail and technical expertise are impressive."
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                      alt="Client 1"
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>Linus Kang'ethe</h4>
+                    <p>Owner, Kang-ethe-and-Mola-Advocates</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  "Nicholas transformed our outdated website into a modern,
+                  responsive platform that has significantly improved our user
+                  engagement and conversion rates. Highly recommended!"
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                      alt="Client 2"
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>Michael Wambwa</h4>
+                    <p>Pharmacist, Le-Grande-Specialty-Pharmacy</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  "The system Nicholas developed for our business has been a
+                  game-changer. It's user-friendly, visually appealing, and has
+                  all the features we needed. Great work!"
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                      alt="Client 3"
+                    />
+                  </div>
+                  <div class="author-info">
+                    <h4>Phylis Okello</h4>
+                    <p>Pharmacist, St. Luke Pharmacy/p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+          <p>Get in touch with me for any inquiries or project discussions</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Location</h3>
+                <p>Nairobi, Kenya</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Phone</h3>
+                <p>+254 742 167 151</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Email</h3>
+                <p>oyiolon@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="contact-details">
+                <h3>Website</h3>
+                <p>www.nicholasoyiolo.tech</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Nicholas Oyiolo</h3>
+            <p>
+              Full Stack Developer creating innovative digital solutions with a
+              focus on user experience and performance.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Services</h3>
+            <ul class="footer-links">
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">App Development</a></li>
+              <li><a href="#">E-commerce Solutions</a></li>
+              <li><a href="#">SEO Optimization</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to my newsletter for the latest updates and offers.</p>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your Email"
+              />
+              <button
+                type="submit"
+                class="btn"
+                style="margin-top: 10px; width: 100%"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Nicholas Oyiolo. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+      // Mobile Navigation Toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.innerHTML = navLinks.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Back to top button
+      const backToTop = document.querySelector(".back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add("active");
+        } else {
+          backToTop.classList.remove("active");
+        }
+      });
+
+      backToTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Skill bars animation
+      const skillBars = document.querySelectorAll(".skill-progress");
+
+      function animateSkillBars() {
+        skillBars.forEach((bar) => {
+          const width = bar.getAttribute("data-width");
+          bar.style.width = width + "%";
+        });
+      }
+
+      // Portfolio filtering
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          const filterValue = button.getAttribute("data-filter");
+
+          portfolioItems.forEach((item) => {
+            if (
+              filterValue === "all" ||
+              item.getAttribute("data-category") === filterValue
+            ) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Testimonial slider
+      const track = document.querySelector(".testimonial-track");
+      const slides = document.querySelectorAll(".testimonial-slide");
+      const dots = document.querySelectorAll(".slider-dot");
+      let currentSlide = 0;
+
+      function goToSlide(slideIndex) {
+        track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        currentSlide = slideIndex;
+
+        // Update dots
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === slideIndex);
+        });
+      }
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          goToSlide(index);
+        });
+      });
+
+      //CV Download Functionality
+      function downloadCV() {
+        // Create a sample CV content (replace with your actual CV content)
+        const cvContent = `
+        NICHOLAS OYIOLO
+        Full Stack Developer
+        
+        CONTACT INFORMATION
+        Email: oyiolon@gmail.com
+        Phone: +254 742167151
+        Location: Nairobi, Kenya
+        Portfolio: www.nicholasoyiolo.tech
+        
+        PROFESSIONAL SUMMARY
+        Passionate full stack developer with expertise in creating dynamic, 
+        responsive web applications. Strong foundation in both front-end and 
+        back-end technologies.
+        
+        TECHNICAL SKILLS
+        • HTML/CSS: Advanced
+        • JavaScript: Advanced  
+        • React: Proficient
+        • Node.js: Proficient
+        • UI/UX Design: Intermediate
+        • Responsive Design: Advanced
+        
+        EXPERIENCE
+        Full Stack Developer | 2022 - Present
+        • Developed responsive web applications and websites.
+        • Created a Point of Sale System for a pharmacy
+        • Went live with multiple client projects
+        • Collaborated with designers and stakeholders to deliver high-quality solutions.
+        
+        EDUCATION
+        Bachelor of Computer Science | 2021-PRESENT
+        ST PAUL'S UNIVERSITY, LIMURU
+        
+        PROJECTS
+        • Pharmacy Website - Booking system for pharmacies
+        • Law Firm Website - Professional site for legal services
+        • Point Of Sale System (pharmacy) - Inventory and sales management application
+    `;
+
+        // Create a Blob with the CV content
+        const blob = new Blob([cvContent], { type: "text/plain" });
+
+        // Create a download link
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Nicholas_Oyiolo_CV.txt";
+
+        // Trigger the download
+        document.body.appendChild(a);
+        a.click();
+
+        // Clean up
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      // Auto slide testimonials
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        goToSlide(currentSlide);
+      }, 5000);
+
+      // Animate elements on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains("skill-progress")) {
+              animateSkillBars();
+            }
+            entry.target.classList.add("animate");
+          }
+        });
+      }, observerOptions);
+
+      // Observe skill bars
+      skillBars.forEach((bar) => {
+        observer.observe(bar);
+      });
+
+      // Form submission
+      const contactForm = document.getElementById("contactForm");
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for your message! I will get back to you soon.");
+        contactForm.reset();
+      });
+
+      // Initialize animations on page load
+      window.addEventListener("load", () => {
+        // Trigger skill bars animation if they're in view
+        const skillSection = document.getElementById("about");
+        const skillSectionTop = skillSection.offsetTop;
+        const windowHeight = window.innerHeight;
+
+        if (skillSectionTop < windowHeight) {
+          animateSkillBars();
+        }
+      });
+    </script>
+  </body>
+</html>
